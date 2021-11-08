@@ -5,13 +5,16 @@
 #include "src/Logic/GameState.h"
 #include <windows.h>
 #include <iostream>
+
+const int windowWidth = 800;
+const int windowHeight = 600;
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
-    Renderer render(&window);
+    sf::RenderWindow window(sf::VideoMode(windowWidth, windowHeight), "My window");
+    Renderer render(&window, windowHeight, windowWidth);
     GameState state;
     sf::Clock clock;
     float accumulatedTime = 0.f;
-    float frameTime = 1.f / 60.f;
+    float frameTime = 1.f / 3.f;
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {

@@ -1,3 +1,7 @@
+#ifndef GAMESTATE_H
+#define GAMESTATE_H
+
+
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <utility>
@@ -23,14 +27,19 @@ private:
 	Direction dir;
 	pair<int, int> head;
 	vector<pair<int, int>> body;
+	pair<int, int> food;
 	bool over;
 	
+	void init();
 	bool isCollision();
 	bool isSelfCollision();
 	bool isWallCollision();
+	void updateBoard();
 	pair<int, int> getNextLocation();
 	void move();
+	pair<int, int> spawnFood();
+	bool isFoodInBody(int foodHeight, int foodWidth);
 };
 
-
+#endif
 
